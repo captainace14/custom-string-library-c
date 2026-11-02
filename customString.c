@@ -14,17 +14,24 @@ void *my_memcpy(void *s1, const void *s2, size_t n) {
 	char *c1 = s1;
 	const char *c2 = s2;
 
-	for(size_t i = 0; i < n; i++) 
-	   c1[i] = c2[i];
-	
+	while(n--)*c1++ = *c2++;	
 	return s1;
+}
+
+
+char *my_strcopy(char *dest, char *src) {
+	char *p = dest;
+	
+	while( (*p++ = *src++) );
+
+	return dest;
 }
 
 int main(void) {
  
 	char s[100] = "Goats";
 	char t[100];
-	memcpy(t, s, 2);
+	my_memcpy(t, s, 2);
 	
 	t[2] = '\0';
 	
